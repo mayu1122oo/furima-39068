@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          validates :email, presence: true
-         validates :password, presence: true
+         VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+         validates :password, presence: true, format: { with: VALID_PASSWORD_REGEX }
          validates :nickname, presence: true
          validates :last_name, presence: true
          validates :first_name, presence: true
