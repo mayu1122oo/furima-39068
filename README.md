@@ -4,7 +4,7 @@
 
 | Column             | Type   | Options                   |
 | ------------------ | ------ | ------------------------- |
-| nickname           | string | null: false, unique: true |
+| nickname           | string | null: false               |
 | email              | string | null: false, unique: true |
 | encrypted_password | string | null: false               |
 | last_name          | string | null: false               |
@@ -20,17 +20,17 @@
 
 ## items テーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| user          | references | null: false, foreign_key: true |
-| name          | string     | null: false                    |
-| description   | text       | null: false                    |
-| category      | integer    | null: false                    |
-| item_state    | integer    | null: false                    |
-| delivery_cost | integer    | null: false                    |
-| ship_from     | integer    | null: false                    |
-| ship_date     | integer    | null: false                    |
-| price         | integer    | null: false                    |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| user             | references | null: false, foreign_key: true |
+| name             | string     | null: false                    |
+| description      | text       | null: false                    |
+| category_id      | integer    | null: false                    |
+| item_state_id    | integer    | null: false                    |
+| delivery_cost_id | integer    | null: false                    |
+| prefecture_id    | integer    | null: false                    |
+| ship_date_id     | integer    | null: false                    |
+| price            | integer    | null: false                    |
 
 ### Association
 
@@ -49,18 +49,19 @@
 
 - belongs_to :user
 - belongs_to :item
+- has_one :purchaser
 
 ## purchases テーブル
 
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| orders       | references | null: false, foreign_key: true |
-| postcode     | string     | null: false                    |
-| prefecture   | integer    | null: false                    |
-| city         | string     | null: false                    |
-| block        | string     | null: false                    |
-| building     | string     | null: false                    |
-| phone_number | string     | null: false                    |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| order         | references | null: false, foreign_key: true |
+| postcode      | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| city          | string     | null: false                    |
+| block         | string     | null: false                    |
+| building      | string     |                                |
+| phone_number  | string     | null: false                    |
 
 ### Association
 
