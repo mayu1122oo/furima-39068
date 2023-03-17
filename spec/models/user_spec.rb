@@ -79,7 +79,6 @@ RSpec.describe User, type: :model do
       it "姓（全角）に半角文字が含まれていると登録できない" do
         @user.last_name = 'aaa'
         @user.valid?
-        #binding.pry
         expect(@user.errors.full_messages).to include("Last name is invalid")
       end
       it "first_nameが空だと登録できない" do
@@ -100,7 +99,6 @@ RSpec.describe User, type: :model do
       it "姓（カナ）にカタカナ以外の文字（平仮名・漢字・英数字・記号）が含まれていると登録できない" do
         @user.last_name_kana = 'aaa'
         @user.valid?
-        #binding.pry
         expect(@user.errors.full_messages).to include("Last name kana is invalid")
       end
       it "first_name_kanaが空だと登録できない" do
