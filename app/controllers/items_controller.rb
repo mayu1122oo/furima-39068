@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       @item = Item.new(item_params)
-      render.new
+      render :new
     end
   end
 
