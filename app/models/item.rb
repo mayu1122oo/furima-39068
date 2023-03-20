@@ -15,8 +15,6 @@ class Item < ApplicationRecord
   validates :delivery_cost_id, numericality: { other_than: 1 }
   validates :prefecture_id, numericality: { other_than: 1 }
   validates :ship_date_id, numericality: { other_than: 1 }
-  validates :price, presence: true, format: {with: /\A[0-9]+\z/ }
+  validates :price, presence: true, format: {with: /\A[0-9]+\z/ }, numericality: { in: 300..9999999 }
   validates :image, presence: true
-
-
 end
