@@ -63,7 +63,6 @@ RSpec.describe OrderAddress, type: :model do
       it "user_idが空だと登録できない" do
         @order_address.user_id = nil
         @order_address.valid?
-        #binding.pry
         expect(@order_address.errors.full_messages).to include("User can't be blank")
       end
       it "item_idが空だと登録できない" do
