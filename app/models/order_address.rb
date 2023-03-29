@@ -5,12 +5,12 @@ class OrderAddress
   with_options presence: true do
     validates :user_id
     validates :item_id
-    validates :postcode, presence: true, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
+    validates :postcode, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
     validates :prefecture_id, numericality: { other_than: 1 }
-    validates :city, presence: true
-    validates :block, presence: true
-    validates :phone_number, presence: true, format: {with:/\A\d{10,11}\z/}
-    validates :token, presence: true
+    validates :city
+    validates :block
+    validates :phone_number, format: {with:/\A\d{10,11}\z/}
+    validates :token
   end
 
     def save
